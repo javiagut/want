@@ -6,6 +6,9 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Pedido;
+use App\Models\Detalle;
+use Illuminate\Support\Facades\Session;
 
 trait RegistersUsers
 {
@@ -35,6 +38,37 @@ trait RegistersUsers
 
         $this->guard()->login($user);
 
+        $sessionAntigua = Session::getId();
+        if(Auth::user()){
+            
+            /*          Pendiente UNIFICAR EL PEDIDO COMO GUEST Y EL PEDIDO PENDIENTE        */
+
+            if(count(Pedido::where('id_cliente','=', Auth::id())->where('estado','=','Pendiente')->get())>0 && count(Pedido::where('id_cliente','=', null)->where('sesion','=', $sessionAntigua)->where('estado','=','Pendiente')->get())>0 ){
+                $pedidoAUTH = Pedido::where('id_cliente','=', Auth::id())->where('estado','=','Pendiente')->get();
+                $pedidoGUEST = Pedido::where('id_cliente','=', null)->where('sesion','=', $sessionAntigua)->where('estado','=','Pendiente')->get();
+
+                $pedidoAUTH[0]->update([
+                    'sesion' => Session::getId(),
+                ]);
+
+                Detalle::where('id_pedido','=',$pedidoGUEST[0]->id)->update([
+                    'id_pedido' => $pedidoAUTH[0]->id
+                ]);
+
+                $pedidoGUEST[0]->delete();
+
+                Pedido::totalCesta($pedidoAUTH[0]->id);
+            
+            }
+            else if(count(Pedido::where('sesion','=',$sessionAntigua)->where('id_cliente','=',null)->get())>0){
+                $antiguo = Pedido::where('sesion','=',$sessionAntigua)->where('id_cliente','=',null);
+                $antiguo->update([
+                    'id_cliente' => Auth::id(),
+                    'sesion' => Session::getId()
+                ]);
+            }
+        }
+        //
         if ($response = $this->registered($request, $user)) {
             return $response;
         }

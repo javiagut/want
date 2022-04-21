@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->unique();
             $table->string('nombre');
             $table->string('marca');
-            $table->string('descripcion');
+            $table->string('descripcion',500);
             $table->integer('id_categoria');
             $table->integer('rebaja')->nullable();
             $table->date('rebaja_inicio')->nullable();

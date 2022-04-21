@@ -11,12 +11,16 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up(){
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
+            $table->string('id_cliente')->nullable();
+            $table->string('estado');
+            $table->string('sesion')->nullable();
+            $table->string('total')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**

@@ -21,15 +21,15 @@ return new class extends Migration
             $table->integer('id_producto');
             $table->integer('id_talla');
             $table->integer('id_color');
-            $table->string('sexo');
+            $table->string('sexo')->nullable();
             $table->float('precio');
-            $table->integer('stock');
-            $table->integer('ventas');
+            $table->integer('stock')->nullable();
+            $table->integer('ventas')->nullable();
             $table->string('foto1');
-            $table->string('foto2');
-            $table->string('foto3');
-            $table->string('foto4');
-            $table->string('foto5');
+            $table->string('foto2')->nullable();
+            $table->string('foto3')->nullable();
+            $table->string('foto4')->nullable();
+            $table->string('foto5')->nullable();
             $table->timestamps();
         });
     }

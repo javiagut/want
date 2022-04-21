@@ -79,5 +79,6 @@ class RegisterController extends Controller
             'nacimiento' => $data['nacimiento'],
             'rol' => 'cliente',
         ]);
+        
     }
 }

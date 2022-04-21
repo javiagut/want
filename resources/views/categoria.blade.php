@@ -104,7 +104,7 @@
               <div class="filaProductos">
                     @isset($stocks)
                         @for ($i = 1; $i <= count($stocks); $i++)
-                        <?php $producto = home_controller::devolverProducto($stocks[$i-1]->id_producto)?>
+                        <?php $producto = home_controller::devolverProducto($stocks[$i-1]->id_producto) ?>
                             <div class="cuadroProducto">
                                 <span style="display: none" id="color">{{$stocks[$i-1]->id_color}}</span>
                                 <p style="height: 30px">

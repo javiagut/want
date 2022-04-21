@@ -247,6 +247,8 @@ class home_controller extends Controller
     static function devolverColores(){
         return Colores::all();
     }
-
+    static function categoriasCinco(){
+        return Categoria::all()->take(7);
+    }
     //
 }

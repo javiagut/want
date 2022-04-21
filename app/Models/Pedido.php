@@ -88,7 +88,7 @@ class Pedido extends Model
         if(count(Detalle::where('id_pedido','=',$pedidos[0]->id)->where('id_stock','=',$stock)->get()) >0 ){
             $detalle = Detalle::where('id_pedido','=',$pedidos[0]->id)->where('id_stock','=',$stock)->get();
             $detalle[0]->update([
-                'cantidad' => ($stock[0]->cantidad)+request('cantidad')
+                'cantidad' => ($detalle[0]->cantidad)+request('cantidad')
             ]);
         }
         else{
