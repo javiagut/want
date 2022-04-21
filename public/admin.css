@@ -1,0 +1,572 @@
+@media screen and (min-width:700px){
+    body{
+        width: 100%;
+        margin: auto;
+        font-family: 'Rubik', sans-serif;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*               HEADER              */
+    button{outline:none;}
+    a{outline:none;}
+    header{
+        width: 100%;
+    }
+    .header_title{
+        margin-top: 10px;
+        text-align: center;
+        font-size: 4em;
+        padding-bottom: 10px;
+        border-bottom: #5baa9a 1px solid;
+    }
+    .header_title a{
+        text-decoration: none;
+        color:  #5baa9a ;
+    }
+    .menuColor{
+        color: #5baa9a;
+    }
+    .menu_admin{
+        position: absolute;
+        padding-right: 30px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border-right: #5baa9a 1px solid;
+        border-bottom: #5baa9a 1px solid;
+        width: 7%;
+        min-width: 132.35px;
+    }
+    ul{
+        list-style: none;
+    }
+    a{
+        text-align: right;
+        text-decoration: none;
+    }
+    li{
+        margin-top: 20px;
+        color: black;
+        font-size: 1.1em;
+    }
+    li:hover{
+        color: #5baa9a;
+    }
+    .general_admin{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logoutAdmin{
+        font-size: 0.3em;
+        margin-top: 4%;
+        float: inline-end;
+    }
+
+    /*               CATEGORIAS              */
+    .container_form_categorias{
+        width: 100%;
+        display: flex;
+    }
+    .admin_categoria_title{
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+    }
+    #esquema_categorias{
+        width: 20%;
+        margin-left: 15%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .row_categorias{
+        width: 100%;
+        /*display: flex;*/
+        flex-direction: column;
+    }
+    .categoria{
+        display: flex;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .row_categorias button{
+        background-color: white;
+        border: none;
+    }
+    .categoria_abuelo:hover, .categoria_hijo:hover, .categoria_nieto:hover{
+        color: #5baa9a;
+        border-left: #5baa9a 1px solid;
+    }
+    .categoria_hijo{
+        margin-left: 50px;
+    }
+    .categoria_nieto{
+        margin-left: 100px;
+    }
+    .oculto{
+        display: none;
+    }
+    .formularios_categorias{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+    .buttons_cat{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .buttons_cat p{
+        margin-top: 50px;
+        margin-left:23%;
+    }
+    #status{
+        color: #5baa9a;
+    }
+    .formularios_categorias button{
+        margin-left: 150px;
+        margin-top: 55px;
+        width: 200px;
+        height: 30px;
+        font-size: 1em;
+        background-color: white;
+        border: 1px solid #5baa9a;
+        border-radius: 10px;
+    }
+    .formularios_categorias button:hover{
+        background-color: #5baa9a;
+        color: white;
+    }
+    #form_nueva_categoria{
+        display: none;
+    }
+
+    .nueva_categoria{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .section_nueva_categoria{
+        display: flex;
+        flex-direction: column;
+        margin: 50px;
+    }
+    .section_nueva_categoria input{
+        width: 300px;
+        background-color: white;
+        border: 1px solid #5baa9a;
+        border-radius: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .section_nueva_categoria select{
+        width: 150px;
+        background-color: white;
+        border: 1px solid #5baa9a;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 0.8em;
+    }
+    .añBTNsubmit{
+        margin-left: 24%;
+    }
+    .añBTNsubmit:hover{
+        color: white;
+        background-color: #5baa9a;
+    }
+    #form_modificar_categoria{
+        justify-content: center;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        display: none;
+        margin-bottom: 100px;
+    }
+    #form_modificar_categoria table{
+        width: 90%;
+    }
+    #form_modificar_categoria tr{
+        text-align: center;
+        height: 50px;
+    }
+    #form_modificar_categoria {
+        margin-bottom: 50px;
+    }
+    #form_modificar_categoria select, input{
+        background-color: white;
+        color: black;
+        border: 1px solid #5baa9a;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 0.8em;
+    }
+    .nueva_Cat{
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-left: 170px;
+    }
+    .guardar_cat_edit{
+        width: 80px;
+        margin-left: 20px;
+    }
+    .guardar_cat_edit:hover{
+        color: white;
+        background-color: #5baa9a;
+    }
+    .basura_cat{
+        width: 30px;
+    }
+    .eliminarCat:hover{
+        background-color: red;
+        color: white;
+        cursor: pointer;
+    }
+    .eliminarCat{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        font-size: 1em;
+    }
+    .eliminarCategoria{
+        display: flex;
+        width: 100px;
+    }
+    .nombreCategoriaTabla{
+        width: 180px;
+    }
+    #avisoCategorias{
+        display: flex;
+        flex-direction: column;
+        padding-left: 10%;
+    }
+
+    /*               PRODUCTOS              */
+
+    .container_menu_productos{
+        width: auto;
+        margin-left: 18%;
+    }
+
+    .buttons_pro{
+        display: flex;
+        width: auto;
+        margin-bottom: 70px;
+    }
+    #avisoProductos{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        text-align: center;
+        margin-top: -40px;
+        margin-bottom: 50px;
+    }
+    .buttons_pro button{
+        margin-left: 150px;
+        margin-top: 55px;
+        width: 250px;
+        height: 30px;
+        font-size: 1em;
+        background-color: white;
+        border: 1px solid #5baa9a;
+        border-radius: 10px;
+    }
+    .buttons_pro button:hover{
+        background-color: #5baa9a;
+        color: white;
+    }
+
+    #mostrarAñadirProducto{
+        width: 100%;
+        height: auto;
+        margin-bottom: 100px;
+        display: none;
+        flex-direction: column;
+    }
+    .rebajaActivada{
+        display: none;
+        flex-direction: column;
+    }
+    #mostrarAñadirProducto form{
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 38%;
+        width: 50%;
+    }
+    #mostrarAñadirProducto h3{
+        text-align: center;
+        font-size: 2em;
+    }
+    select{
+        width: 170px;
+        border: #5baa9a solid 1px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 3px;
+        font-size: 0.9em;
+        height: 30px;
+        margin-top: 7px;
+    }
+    input[type=date]{
+        border: #5baa9a solid 1px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 3px;
+        font-size: 1em;
+        height: 28px;
+        margin-top: 7px;
+    }
+    #mostrarAñadirProducto tr td:nth-child(2n+1){
+        text-align: right;
+        padding-right: 30px;
+        height: 30px;
+    }
+    input[type=text]{
+        width: 250px;
+        height: 25px;
+        font-size: 1em;
+    }
+
+    #mostrarEditarProducto{
+        width: 100%;
+        height: auto;
+        margin-bottom: 100px;
+        display: none;
+        text-align: center;
+    }
+    #catProBTN{
+        border: #5baa9a solid 1px;
+        background-color: white;
+        border-radius: 5px;
+        font-size: 1em;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+    #catProBTN:hover{
+        background-color: #5baa9a;
+        color: white;
+        font-size: 1em;
+    }
+
+    #productosCategoriaSeleccionada{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #formularioProductoSeleccionado{
+        width: 100%;
+        display: none;
+        margin-top: 50px;
+        
+    }
+    .listaProductos{
+        display: none;
+        text-align: left;
+        width: 60%;
+        flex-direction: column;
+    }
+
+    #formularioProductoSeleccionado form{
+        width: 50%;
+    }
+    #formularioProductoSeleccionado tr td:nth-child(2n+1){
+        text-align: right;
+        padding-right: 30px;
+        height: 30px;
+        width: 40%;
+    }
+    #formularioProductoSeleccionado tr td:nth-child(1n+2){
+        text-align: left;
+        height: 30px;
+    }
+    #prodCatAbierta{
+        background-color: white;
+        border: none;
+        font-size: 1em;
+        display: flex;
+    }
+    #prodCatAbierta:hover{
+        border-left: #5baa9a 1px solid;
+        color: #5baa9a;
+    }
+    #stockProductoSeleccionado table{
+        width: 100%;
+    }
+
+    .mdBTNsubmit{
+        margin-right: 45%;
+        margin-top: 10px;
+    }
+    .mdBTNsubmit:hover{
+        color: white;
+        background-color: #5baa9a;
+    }
+    #eliminarProducto{
+        width: 100%;
+        margin-top: 30px;
+        display: none;
+    }
+    .elBTNsubmit:hover{
+        color: white;
+        background-color: red;
+    }
+
+
+
+    /*               STOCK              */
+
+
+    #avisoStock{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 70px;
+
+    }
+
+    #stockGeneral{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #stockProductoSeleccionado{
+        width: 50%;
+    }
+    .titleStock{
+        display: none;
+        width: 70%;
+        background-color: #e8f0ee;
+        border: #5baa9a solid 1px;
+        border-radius: 5px;
+    }
+    #buscador{
+        margin-bottom: 20px;
+    }
+
+    .editarStock{
+        background-color: transparent;
+        border: none;
+        float: right;
+    }
+    .editarStock:hover{
+        cursor: pointer;
+    }
+
+    .editarStockFormulario{
+        display: none;
+        width: 70%;
+    }
+
+    #crearStockFormulario{
+        display: none;
+    }
+
+    .clicado{
+        color: #5baa9a;
+    }
+    /*              PEDIDOS               */
+    .paginacion{
+        text-align: center;
+    }
+    .paginacion ul{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+    .paginacion li{
+        width: 20px;
+        height: 20px;
+    }
+    .pedidosGeneral{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+    .pedidosGeneral button{
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    .pedidosGeneral img{
+        width: 40px;
+    }
+    .tablaPedidos{
+        margin: auto auto;
+        width: 60%;
+        border-collapse: collapse;
+    }
+    .tablaPedidos tr:first-of-type{
+        background-color: #a45565;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2em;
+        border: 1px solid black;
+    }
+    .tablaPedidos tr{
+        height: 40px;
+    }
+    .tablaPedidos td:first-of-type{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /*               FOOTER              */
+
+    footer{
+        width: 100%;
+        height: 300px;
+        background-color: black;
+        color:white;
+    }
+    .info{
+        padding-top: 80px;
+        padding-left: 200px;
+        width: 300px;
+        font-size: 0.8em;
+    }
+    footer a{
+        text-decoration: none;
+        color: #5baa9a;
+    }
+    .footer_title{
+        font-size: 3em;
+    }
+    .footer_title:hover{
+        color: #a45565;
+    }
+}

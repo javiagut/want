@@ -1,0 +1,782 @@
+body{
+    width: 100%;
+    margin: auto;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 150px;
+}
+@media screen and (min-width:700px){
+
+    /*               HEADER              */
+    button{outline:none;}
+    a{outline:none;}
+    header{
+        width: 100%;
+        background-color: white;
+    }
+    .envio{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        background-color: #a45565;
+    }
+    .envio p:first-child{
+        color: white;
+        font-size: 2em;
+    }
+    .envio p:nth-child(3){
+        font-size: 1.5em;
+    }
+    .envio img{
+        width: 60px;
+    }
+    .envio img:hover{
+        transform: scale(1.2);
+    }
+    .envio a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        background-color: white;
+        color: #5baa9a;
+        border-radius: 10px;
+        font-size: 1.3em;
+        height: 40px;
+    }
+    .envio a:hover{
+        background-color: #5baa9a;
+        color: white;
+    }
+    .envio p{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .header_title{
+        padding-top: 10px;
+        text-align: center;
+        font-size: 4em;
+        margin-bottom: -15px;
+    }
+    .header_title a{
+        text-decoration: none;
+        color:  #5baa9a ;
+    }
+    .header_carro_compra{
+        width: 30px;
+        float: inline-end;
+        margin-right: 7em;
+        margin-top: -55px;
+    }
+    .header_usuario{
+        width: 30px;
+        float: inline-end;
+        margin-right: 2em;
+        margin-top: -50px;
+    }
+    .header_usuario:hover{transform: scale(1.2);}
+    .header_menu{
+        width: 100%;
+        border-top: #5baa9a 1px solid;
+    }
+    .ul{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+    }
+    .ul a{
+        display: flex;
+        justify-content: center;
+        width: 14.28%;
+        height: 100%;
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .ul a:hover{
+        color: #5baa9a;
+    }
+    .menuColor{
+        color: #5baa9a;
+    }
+
+    /*               HOME DIAPOSITIVA              */
+    #diapo{
+        display: flex;
+        width: 100%;
+        position: sticky
+    }
+    #diapo img{
+        width: 100%;
+        height: auto;
+        position: sticky
+    }
+
+    /*                REGISTRO USUARIO              */
+
+    .divRegistroLogin{
+        width: 100%;
+        border-top: #5baa9a 1px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .divRegistro form:nth-child(2n+1){
+        text-align: end;
+        background-color: #5baa9a;
+    }
+    .listaNoLogeado{
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .listaNoLogeado a{
+        text-decoration: none;
+        color: black;
+        font-size: 1em;
+    }
+    .listaNoLogeado a:first-child{
+        margin-right: 60px;
+    }
+    .listaNoLogeado a:hover{
+        color: #5baa9a;
+    }
+    
+    /*                LOGIN USUARIO              */
+
+    .inicioSesionTitulo{
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 3em;
+        color: black;
+        font-weight: bold;
+    }
+    #formLogin{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+    #formLogin input[type=email], [type=password], [type=text], [type=date]{
+        border: none;
+        border-radius: 10px;
+        width: 250px;
+        height: 30px;
+        padding-left: 10px
+    }
+    #formLogin label{
+        margin-top: 20px;
+        font-size: 1em;
+        margin-bottom: -10px;
+        font-weight: bold;
+    }
+    #formLogin button[type=submit]{
+        border: none;
+        color: white;
+        background-color: black;
+        width: 250px;
+        font-size: 1.5em;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #formLogin button[type=submit]:hover{
+        background-color: transparent;
+        color: black;
+    }
+    #formLogin a{
+        color: black;
+        text-align: center;
+        width: 250px;
+        display: block;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    #formLogin a:hover{
+        color: white;
+    }
+    .checkboxLogin{
+        width: 250px;
+        text-align: center;
+    }
+    .formRegister label{
+        padding-right: 20px;
+    }
+    .formRegister{
+        text-align: right;
+        padding-right: 5%;
+    }
+    .formRegister input{
+        margin-top: 20px;
+    }
+    #status{
+        color: black;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /*              HOME TOPVENTAS              */
+
+    
+    #topVentas{
+        width: 100%;
+        height: 440px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    #topVentas h3{
+        margin-bottom: 30px;
+        padding-left: 15%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 1.5em;
+        font-weight: bolder;
+        color: white;
+    }
+    .carouselTop{
+        margin-top: 10px;
+        display: flex;
+        align-content: center;
+        width: 100%;
+        height: 100%;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .prodTop{
+        width: 17%;
+        height: 220px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: white;
+    }
+    .prodTop:hover{
+        transform: scale(1.1);
+    }
+    .prodTop img{
+        width: 100%;
+        padding: 5px;
+    }
+    /*            FONDO H3 TOP VENTAS             */
+    .bg{
+        animation:slide 3s ease-in-out infinite alternate;
+        background-image: linear-gradient(-60deg, #ff7575 50%, #5baa9a 50%);
+        bottom:0;
+        left:-50%;
+        opacity:.5;
+        position:fixed;
+        right:-50%;
+        top:0;
+        z-index:-1;
+    }
+      
+    .bg2 {
+        animation-direction:alternate-reverse;
+        animation-duration:4s;
+    }
+      
+    .bg3 {
+        animation-duration:5s;
+    }
+    
+    @keyframes slide {
+        0% {
+          transform:translateX(-25%);
+        }
+        100% {
+          transform:translateX(25%);
+        }
+    }
+    /*              GAMING                */
+
+    .gaming{
+        padding-top: 30px;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        color: white;
+        font-size: 1.2em;
+        background-color: #0040c1;
+    }
+    .gaming h3{
+        font-weight: bolder;
+        font-size: 3em;
+        vertical-align: middle;
+    }
+    .gaming button{
+        width: 150px;
+        height: 70px;
+        background-color: black;
+        color: white;
+        border: none;
+        letter-spacing: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*              FONDO ANIMADO       */
+
+    .cube {
+        top: 80vh;
+        left: 45vw;
+        width: 10px;
+        height: 10px;
+        border: solid 1px #003298;
+        -webkit-transform-origin: top left;
+                transform-origin: top left;
+        -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+                transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        -webkit-animation: cube 12s ease-in forwards infinite;
+                animation: cube 12s ease-in forwards infinite;
+      }
+      .cube:nth-child(2n) {
+        border-color: #0051f4;
+      }
+      .cube:nth-child(2) {
+        -webkit-animation-delay: 2s;
+                animation-delay: 2s;
+        left: 25vw;
+        top: 40vh;
+      }
+      .cube:nth-child(3) {
+        -webkit-animation-delay: 4s;
+                animation-delay: 4s;
+        left: 75vw;
+        top: 50vh;
+      }
+      .cube:nth-child(4) {
+        -webkit-animation-delay: 6s;
+                animation-delay: 6s;
+        left: 90vw;
+        top: 10vh;
+      }
+      .cube:nth-child(5) {
+        -webkit-animation-delay: 8s;
+                animation-delay: 8s;
+        left: 10vw;
+        top: 85vh;
+      }
+      .cube:nth-child(6) {
+        -webkit-animation-delay: 10s;
+                animation-delay: 10s;
+        left: 50vw;
+        top: 10vh;
+      }
+      
+      @-webkit-keyframes cube {
+        from {
+          -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+                  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+          opacity: 1;
+        }
+        to {
+          -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+                  transform: scale(20) rotate(960deg) translate(-50%, -50%);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes cube {
+        from {
+          -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+                  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+          opacity: 1;
+        }
+        to {
+          -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+                  transform: scale(20) rotate(960deg) translate(-50%, -50%);
+          opacity: 0;
+        }
+      }
+
+    /*          mostrar hijos productos        */
+
+    .contenedor_hijos{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .mostrar_hijo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        min-height: auto;
+        height: 100px;
+        margin: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-position: center;
+    }
+    .mostrar_hijo:hover{
+        transform: scale(1.1);
+    }
+    .mostrar_hijo_unico:hover{
+        transform: scale(1);
+    }
+    .titulo_categoria{
+        color: white;
+        font-weight: bold;
+        font-size: 1.8em;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    /*              mostrar productos    */
+
+    .generalProductos{
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        margin-bottom: 50px;
+    }
+    .asideFiltros{
+        border-right: #5baa9a 1px solid;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        height: 800px;
+        padding: 20px;
+    }
+    .productosFiltrados{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+    .filaProductos{
+        width: 100%;
+        height: 250px;
+        display: flex;
+    }
+    .cuadroProducto{
+        width: 19%;
+        margin: 5px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: white;
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .cuadroProducto:hover{
+        transform: scale(1.1);
+        border: #5baa9a 1px solid;
+    }
+    .cuadroProducto img{
+        height: 165px;
+        margin-top:-30px;
+    }
+    .precioProductoCuadro{
+        float: right;
+        background-color: #5baa9a;
+        border-radius: 5px;
+        color: white;
+        padding: 5px;
+        position: sticky;
+    }
+    .marcaProductoCuadro{
+        color: #5baa9a;
+        float: left;
+        position: sticky;
+    }
+    .tituloProductoCuadro{
+        height: 45px;
+        color: black;
+        font-size: 0.7em;
+        padding-top: 15px;
+    }
+    .infoCategoriaActual{
+        width: 100%;
+        text-align: center;
+        color: #a45565;
+        font-size: 1.7em;
+    }
+    .actSeEn{
+        width: 100%;
+        text-align: center;
+        font-size: 0.7em;
+        color: grey;
+    }
+    #accordion, .card, #headingOne, #headingTwo, #headingThree{
+        border: none;
+        background-color: transparent;
+        padding: 0px;
+    }
+    .btn-link{
+        color: black;
+    }
+    .btn-link:hover{
+        color: #a45565;
+        text-decoration: none;
+    }
+    .btn-link:focus{
+        text-decoration: none;
+    }
+    .filtro{
+        color: black;
+        font-size: 1em;
+    }
+    
+    /*               PRODUCTO              */
+
+    .generalProducto{
+        width: 100%;
+        display: flex;
+        background-color: white;
+        padding: 50px;
+    }
+    .galeriaProducto{
+        width: 50%;
+        margin-bottom: 100px;
+    }
+    .infoProducto{
+        width: 50%;
+        border-left: #5baa9a 1px solid;
+        padding-left: 20px;
+    }
+    .precioInfoProducto{
+        background-color: #a45565;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 1.2em;
+    }
+    .infoProducto select{
+        width: 100px;
+        height: 30px;
+        border: 1px solid #a45565;
+        border-radius: 10px;
+        text-align: center;
+        margin-right: 20px;
+        background-color: white;
+    }
+    .infoProducto button{
+        background-color: white;
+        border: none;
+    }
+    .infoProducto button:hover{
+        color: #a45565;
+    }
+
+
+    /*              CESTA               */
+
+
+    .cajaStock{
+        display: flex;
+        border-bottom: 1px solid #5baa9a;
+    }
+    .cajafotoCesta{
+        margin: 10px;
+    }
+    .fotoCesta{
+        width: 70px;
+    }
+    .stockCesta{
+        width: 400px;
+        padding: 5px;
+        height: auto;
+    }
+    .tituloStockCesta{
+        color: black;
+    }
+    .cantidadStockCesta{
+        color: #a45565;
+        font-size: 0.8em;
+    }
+    .precioStockCesta{
+        padding: 3px;
+        color: black;
+        float: right;
+        font-size: 1.3em;
+        margin-right: 12px;
+    }
+    .totalCestaDiv{
+        height: 50px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 11px;
+    }
+    .totalCesta{
+        float: right;
+        background-color: #5baa9a;
+        border-radius: 5px;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .cajaCesta{
+        border: 1px solid #5baa9a;
+        box-shadow: #5baa9a 0px 5px 15px;
+    }
+    .eliminarStockCesta{
+        float: right;
+        color: black;
+        margin-right: 15px;
+        margin-top: -5px;
+        border: none;
+        background-color: white;
+    }
+    .eliminarStockCesta:hover{
+        color: #a45565;
+    }
+
+    .finalizarPedido{
+        color: black;
+        margin-left: 10px;
+    }
+    .finalizarPedido:hover{
+        color: #a45565;
+    }
+    .paginacion{
+        padding: 20px;
+        text-align: center;
+        margin-left: 44%;
+    }
+    .paginacion a{
+        color: #5baa9a;
+    }
+    .paginacion a:hover{
+        background-color: #5baa9a;
+        color: white;
+    }
+    .page-item.active{
+        background-color: #a45565;
+    }
+    .cantidadCesta{
+        padding-top: 2px;
+        padding-bottom: 3px;
+        padding-left: 7px;
+        padding-right: 7px;
+        position: absolute;
+        background-color: red;
+        color: white;
+        font-size: 0.6em;
+        border-radius: 12px;
+        margin-left: -5px;
+        margin-top: 15px;
+    }
+    .profile{
+        background-color: #5baa9a;
+        margin: 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .profile h3{
+        color: #a45565;
+        font-weight: bold;
+    }
+
+
+    /*              PEDIDOS             */
+
+    .pedidosGeneral{
+        width: 100%;
+        display: flex;
+        padding: 50px;
+    }
+
+    .pedidos{
+        width: 65%;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .tituloPedido{
+        background-color: #a45565;
+        color: white;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+    }
+    .infoPedido{
+        padding: 30px;
+        box-shadow: #5baa9a 0px 5px 15px;
+        background-color: white;
+    }
+    .cestaPedidos{
+        width: 35%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .tituloPedidosRealizados{
+        color: white;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    /*              BUSCADOR              */
+
+    .buscadorProductos{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .buscadorProductos form{
+        display: flex;
+        justify-content: center;
+    }
+    .buscadorProductos input[type=text]{
+        border: 1px solid #5baa9a;
+    }
+
+    .buscadorProductos button{
+        border: none;
+        background-color: transparent;
+    }
+
+    .buscadorProductos img{
+        height: 30px;
+        margin-left: 20px;
+        position: absolute;
+        margin-top: -14px;
+    }
+
+
+    /*               FOOTER              */
+
+    footer{
+        width: 100%;
+        height: 300px;
+        background-color: black;
+        color:white;
+        margin-bottom: -1000px;
+    }
+    .info{
+        padding-top: 80px;
+        padding-left: 200px;
+        width: 300px;
+        font-size: 0.8em;
+    }
+    footer a{
+        text-decoration: none;
+        color: #5baa9a;
+    }
+    .footer_title{
+        font-size: 3em;
+    }
+    .footer_title:hover{
+        color: #a45565;
+    }
+}
