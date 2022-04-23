@@ -4,101 +4,73 @@
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
-        <h3 class="inicioSesionTitulo">Registrarse</h3>
-        <form method="POST" action="{{ route('register') }}" id="formLogin" class="formRegister">
+        <form method="POST" action="{{ route('register') }}" id="formLogin" class="formRegister" style="width: 30%;">
             @csrf
+            <h3 class="inicioSesionTitulo">Registrarse</h3>
+            @if (session('status'))
+                <p id="status">{{session('status')}}</p>
+            @endif
             <table>
                 <tr>
-                    <td><label for="name">{{ __('Nombre') }}</label></td>
-                    <td><input id="name" type="text" class="form-control @error('Nombre') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus></td>
-                    @error('Nombre')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="nombre">{{ __('Nombre') }}</label></td>
+                    <td><input id="name" type="text" class=" @error('nombre') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus></td>
                 </tr>
+                @if ($errors->has('nombre'))
+                    <tr><td colspan="2"><p style="color: red">Formato nombre no válido</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="apellido1">{{ __('Primer Apellido') }}</label></td>
-                    <td><input id="apellido1" type="text" class="form-control @error('apellido1') is-invalid @enderror" name="apellido1" required autocomplete="apellido1"></td>
-                    @error('apellido1')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="apellido1">{{ __('Primer Apellido') }}</label></td>
+                    <td><input id="apellido1" type="text" class="@error('apellido1') is-invalid @enderror" value="{{ old('apellido1') }}" name="apellido1" required autocomplete="apellido1"></td>
                 </tr>
+                @if ($errors->has('apellido1'))
+                    <tr><td colspan="2"><p style="color: red">Formato apellido no válido</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="apellido2">{{ __('Segundo Apellido') }}</label></td>
-                    <td><input id="apellido2" type="text" class="form-control @error('apellido2') is-invalid @enderror" name="apellido2" autocomplete="apellido2"></td>
-                    @error('apellido2')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="apellido2">{{ __('Segundo Apellido') }}</label></td>
+                    <td><input id="apellido2" type="text" class="@error('apellido2') is-invalid @enderror" value="{{ old('apellido2') }}" name="apellido2" autocomplete="apellido2"></td>
                 </tr>
+                @if ($errors->has('apellido2'))
+                    <tr><td colspan="2"><p style="color: red">Formato apellido no válido</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="contacto1">{{ __('Contacto') }}</label></td>
-                    <td><input id="contacto1" type="text" class="form-control @error('contacto1') is-invalid @enderror" name="contacto1" required autocomplete="contacto1"></td>
-                    @error('contacto1')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="contacto1">{{ __('Contacto') }}</label></td>
+                    <td><input id="contacto1" type="text" class="@error('contacto1') is-invalid @enderror" value="{{ old('contacto1') }}" name="contacto1" required autocomplete="contacto1"></td>
                 </tr>
+                @if ($errors->has('contacto1'))
+                    <tr><td colspan="2"><p style="color: red">Formato teléfono no válido</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="contacto2">{{ __('Contacto (Secundario)') }}</label></td>
-                    <td><input id="contacto2" type="text" class="form-control @error('contacto2') is-invalid @enderror" name="contacto2" autocomplete="contacto2"></td>
-                    @error('contacto2')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="contacto2">{{ __('Contacto (Secundario)') }}</label></td>
+                    <td><input id="contacto2" type="text" class="@error('contacto2') is-invalid @enderror" value="{{ old('contacto2') }}" name="contacto2" autocomplete="contacto2"></td>
                 </tr>
+                @if ($errors->has('contacto2'))
+                    <tr><td colspan="2"><p style="color: red">Formato teléfono no válido</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="nacimiento">{{ __('Nacimiento') }}</label></td>
-                    <td><input id="nacimiento" type="date" class="form-control @error('nacimiento') is-invalid @enderror" name="nacimiento" required autocomplete="nacimiento"></td>
-                    @error('nacimiento')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="nacimiento">{{ __('Nacimiento') }}</label></td>
+                    <td><input id="nacimiento" type="date" class="@error('nacimiento') is-invalid @enderror" value="{{ old('nacimiento') }}" name="nacimiento" required autocomplete="nacimiento"></td>
+                    
                 </tr>
+                @if ($errors->has('nacimiento'))
+                    <tr><td colspan="2"><p style="color: red">Formato fecha no válido (dd/mm/yyyy)</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="email">{{ __('Correo electrónico') }}</label></td>
-                    <td><input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"></td>
-                    @error('email')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="email">{{ __('Correo electrónico') }}</label></td>
+                    <td><input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"></td>
                 </tr>
+                @if ($errors->has('email'))
+                    <tr><td colspan="2"><p style="color: red">Formato email no válido o ya existe una cuenta con este email</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="password">{{ __('Password') }}</label></td>
-                    <td><input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"></td>
-                    @error('password')
-                        <td>
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        </td>
-                    @enderror
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="password">{{ __('Password') }}</label></td>
+                    <td><input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password"></td>
                 </tr>
+                @if ($errors->has('password'))
+                    <tr><td colspan="2"><p style="color: red">Las contraseñas no coinciden</p></td><tr>
+                @endif
                 <tr>
-                    <td><label for="password-confirm">{{ __('Confirmar Password') }}</label></td>
-                    <td><input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"></td>
+                    <td><label style="margin-bottom: 15px;margin-top: -5px;" for="password-confirm">{{ __('Confirmar Password') }}</label></td>
+                    <td><input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password"></td>
                 </tr>
                 <tr>
                     <td></td>

@@ -58,6 +58,7 @@ body{
         text-align: center;
         font-size: 4em;
         margin-bottom: -15px;
+        height: 160px;
     }
     .header_title a{
         text-decoration: none;
@@ -151,25 +152,60 @@ body{
     .inicioSesionTitulo{
         width: 100%;
         text-align: center;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 3em;
-        color: black;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+        font-size: 2em;
+        color: white;
         font-weight: bold;
+        background-color: #5baa9a;
+        border-radius: 10px;
+        position: absolute;
+        margin-top: -150px;
+        width: 326px;
+        box-shadow: #5baa9a 0px 5px 15px;
+    }
+    .tableLogin{
+        width: 250px;
+        display: flex;
+    }
+    .tableLogin tr{
+        width: 250px;
+    }
+    .tableLogin td{
+        width: 50px;
     }
     #formLogin{
-        width: 100%;
+        width: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-bottom: 100px;
+        margin-top: 100px;
+        background-color: white;
+        box-shadow: #5baa9a 0px 5px 15px;
+        border-radius: 10px;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 100px;
     }
     #formLogin input[type=email], [type=password], [type=text], [type=date]{
         border: none;
-        border-radius: 10px;
-        width: 250px;
+        border-bottom: 1px solid black;
+        width: 200px;
         height: 30px;
-        padding-left: 10px
+        margin-left: 40px;
+        outline: none;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .iconosLogin{
+        position: absolute;
+        width: 30px;
+        margin-top: 4px;
     }
     #formLogin label{
         margin-top: 20px;
@@ -201,21 +237,14 @@ body{
         margin-top: 10px;
     }
     #formLogin a:hover{
-        color: white;
+        color: #a45565;
     }
     .checkboxLogin{
-        width: 250px;
-        text-align: center;
-    }
-    .formRegister label{
-        padding-right: 20px;
+        text-align: left;
     }
     .formRegister{
         text-align: right;
         padding-right: 5%;
-    }
-    .formRegister input{
-        margin-top: 20px;
     }
     #status{
         color: black;
@@ -732,13 +761,20 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: -50px;
     }
     .buscadorProductos form{
         display: flex;
         justify-content: center;
+        padding-right: 30px;
     }
     .buscadorProductos input[type=text]{
         border: 1px solid #5baa9a;
+        border-radius: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .buscadorProductos button{
@@ -750,7 +786,7 @@ body{
         height: 30px;
         margin-left: 20px;
         position: absolute;
-        margin-top: -14px;
+        margin-top: -25px;
     }
 
 
