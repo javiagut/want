@@ -46,9 +46,11 @@
                             ?>
                             <p style="color: rgb(104, 104, 104);margin-left:10px;">Última actualización: {{$fecha2}}</p>
                         </div>
-                        
                     </div>
                 @endforeach
+                <div class="paginacion">
+                    {{$pedidos->links() }}
+                </div>
             @else
             <p>NO SE HA REALIZADO NINGÚN PEDIDO</p>
             @endif

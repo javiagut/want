@@ -77,13 +77,8 @@
                 <?php $mitad = count($categorias)/2; $i=0; ?>
                 @foreach ($categorias as $categoria)
                     <button id="catProBTN" class="catProBTN">{{$categoria->categoria}}</button>
-                    <?php $i++; ?>
-                    @if ($i>$mitad)
-                        <br>
-                        <?php $i=0; ?>
-                    @endif
                 @endforeach
-                <button id="catProBTN" class="catProBTN">No catalogados</button><br>
+                <button id="catProBTN" class="catProBTN">No catalogados</button>
                 <button id="catProBTN" class="catProBTN">Todos</button><br>
             </div>
             <div id="formularioProductoSeleccionado">

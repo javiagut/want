@@ -14,11 +14,12 @@ return new class extends Migration
     public function up(){
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id()->unique();
-            $table->string('id_cliente')->nullable();
+            $table->bigInteger('id_cliente')->nullable();
             $table->string('estado');
             $table->string('sesion')->nullable();
-            $table->string('total')->nullable();
+            $table->float('total')->nullable();
             $table->timestamps();
+            $table->foreign('id_cliente')->references('id')->on('clientes');
         });
 
     }

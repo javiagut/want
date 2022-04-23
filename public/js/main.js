@@ -82,3 +82,5 @@ for (let i = 0; i < categorias.length; i++) {
 	}
 
 }
+
+

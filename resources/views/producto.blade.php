@@ -38,6 +38,7 @@
         <p class="precioInfoProducto">{{$stock->precio}}€</p>
         <p style="color: black;width:80%;text-align:justify;">{{$producto->descripcion}}</p>
         <p style="color:#5baa9a;">Color: {{home_controller::devolverColor($stock->id_color)->color}}</p>
+        <p style="color:black;">Stock Actual: {{$stock->stock}} ud.</p>
         <form action="{{route('añadirCesta', $stock)}}">
             <select name="cantidad" id="cantidad">
                 @for ($i = 0; $i < 20; $i++)
@@ -54,7 +55,7 @@
         <div class="carousel-inner">
             <?php $extra=0?>
             @for ($e = 0; $e < 3; $e++)
-                <div class="carousel-item {{$e==0 ? 'active' : ''}}">
+                <div class="carousel-item {{$e==0 ? 'active' : ''}}" style="margin-bottom: 50px;">
                     <div class="carouselTop" style="height: 250px">
                         @for ($i = $extra; $i < $extra+5; $i++)
                         <?php $producto = home_controller::devolverProducto($stocks[$i]->id_producto) ?>

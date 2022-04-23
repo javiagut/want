@@ -447,6 +447,28 @@ function filtrarProducto(){
         }
     });
 }
+
+function filtrarCategoria(){
+    var form = document.getElementById('buscador');
+    var texto = form.buscadorCategorias.value;
+    var trs = document.querySelectorAll('tr');
+    trs.forEach(tr => {
+        if(tr.classList[0] == 'catAbierta'){
+            var producto = tr.id.toLocaleLowerCase();
+            if(!producto.includes(texto.toLocaleLowerCase())){
+                tr.style.display = 'none';
+            }
+            else{
+                tr.style.display = '';
+            }
+        }
+        else{
+            tr.style.display = '';
+        }
+    });
+    console.log(texto);
+}
+
 function editarStock(id){
     var formsEditar = document.getElementsByClassName('editarStockFormulario');
     for (var i = 0; i < formsEditar.length; i++) {
@@ -466,6 +488,12 @@ function editarStock(id){
 function esconder(){
     var status = document.getElementById('status');
     if(status != null) status.style.display = 'none';
+}
+function mostrarDetalle(id){
+    var tr = document.getElementById(id);
+    if(tr.style.display != '') tr.style.display = '';
+    else tr.style.display = 'none';
+    console.log(id);
 }
 
 function main(){
@@ -500,6 +528,7 @@ function main(){
         }
     }
     setTimeout(esconder, 2500);
+    
     
     
 }

@@ -10,6 +10,9 @@
     <div class="bg bg3"></div>
         <div class="pedidos">
             <h3 class="tituloPedidosRealizados">Cesta</h3>
+            @if (session('sinStock'))
+                <p id="status">{{session('sinStock')}}</p>
+            @endif
             @if (home_controller::existeCesta())
             <?php $pedido = home_controller::existeCesta() ?>
                 <div id="pedido">

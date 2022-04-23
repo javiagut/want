@@ -134,34 +134,8 @@ class home_controller extends Controller
         }
         return back();
     }
-    public function eliminarStockCesta($id_detalle){
-        $pedido = Pedido::find(Detalle::find($id_detalle)->id_pedido)->where('estado','=','Pendiente')->get();
-        $id_pedido = $pedido[0]->id;
-        $precio = Stock::find(Detalle::find($id_detalle)->id_stock)->precio;
-        //AÑADIR UNIDADES AL STOCK
-        $stockRest = Stock::find(Detalle::find($id_detalle)->id_stock);
-        $stockRest->update([
-            'stock' => $stockRest->stock+Detalle::find($id_detalle)->cantidad
-        ]);
-        //
-        Detalle::find($id_detalle)->delete();
-        if($pedido[0]->total == $precio){
-            Pedido::find($id_pedido)->delete();
-        }
-        else Pedido::totalCesta($pedido[0]->id);
-        return back();
-    }
 
     public function eliminarCesta($pedido){
-        $detalles = Detalle::where('id_pedido','=',$pedido)->get();
-        for ($i=0; $i < count($detalles); $i++) { 
-            //AÑADIR UNIDADES AL STOCK
-            $stockRest = Stock::find($detalles[$i]->id_stock);
-            $stockRest->update([
-                'stock' => $stockRest->stock+$detalles[$i]->cantidad
-            ]);
-            //
-        }
         Detalle::where('id_pedido','=',$pedido)->delete();
         Pedido::find($pedido)->delete();
         return back();
@@ -206,18 +180,75 @@ class home_controller extends Controller
     
     public function realizarPedido($pedido){
         if (Auth::user()){
-            if($pedido != null){
-                Pedido::find($pedido)->update([
-                    'estado' => 'Realizado'
-                ]);
+            if(Pedido::comprobarStock($pedido)==false){
+                if($pedido != null){
+                    Pedido::find($pedido)->update([
+                        'estado' => 'Realizado'
+                    ]);
+                    Pedido::realizarPedido($pedido);
+                }
+
+                if(Pedido::historialPedidos()) $pedidos = Pedido::historialPedidos();
+                else $pedidos = null;
+                
+                return view('pedidos',compact('pedidos'));
             }
-            if(Pedido::historialPedidos()) $pedidos = Pedido::historialPedidos();
-            else $pedidos = null;
-            
-            return view('pedidos',compact('pedidos'));
+            else{
+                return back()->with('sinStock','Se han eliminado los producto que ya no tenían stock');
+            }
         }
         else return redirect('/');
     }
+    public function eliminarStockCesta($id_detalle){
+        $detalle = Detalle::find($id_detalle);
+        $pedido = Pedido::find($detalle->id_pedido);
+        //AÑADIR UNIDADES AL STOCK
+        $stock = Stock::find($detalle->id_stock);
+        $pedido->update([
+            'total' => $pedido->total - ($stock->precio * $detalle->cantidad)
+        ]);
+
+        //
+        Detalle::find($id_detalle)->delete();
+        Pedido::eliminarPedidos();
+        return back();
+    }
+
+    public function restarStockCesta($detalle){
+        $detalle = Detalle::find($detalle);
+        $stock = Stock::find($detalle->id_stock);
+        $pedido = Pedido::find($detalle->id_pedido);
+        $pedido->update([
+            'total' => $pedido->total - $stock->precio
+        ]);
+
+        if ($detalle->cantidad == 1) {
+            $detalle->delete();
+        }   
+        else{
+            $detalle->update([
+                'cantidad' => ($detalle->cantidad)-1
+            ]);
+        }
+        Pedido::eliminarPedidos();
+        return back();
+    }
+
+    public function sumarStockCesta($detalle){
+        $detalle = Detalle::find($detalle);
+        $stock = Stock::find($detalle->id_stock);
+        $pedido = Pedido::find($detalle->id_pedido);
+        $pedido->update([
+            'total' => $pedido->total + $stock->precio
+        ]);
+
+        $detalle->update([
+            'cantidad' => ($detalle->cantidad)+1
+        ]);
+        return back();
+    }
+    
+
     /*                      VARIABLES PARA LAS VISTAS                        */
 
     static function existeCesta(){

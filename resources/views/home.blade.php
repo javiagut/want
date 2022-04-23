@@ -38,7 +38,7 @@
             <div class="carousel-inner">
                 <?php $extra=0?>
                 @for ($e = 0; $e < 3; $e++)
-                    <div class="carousel-item {{$e==0 ? 'active' : ''}}">
+                    <div class="carousel-item {{$e==0 ? 'active' : ''}}" style="margin-bottom: 50px;">
                         <div class="carouselTop" style="height: 250px">
                             @for ($i = $extra; $i < $extra+5; $i++)
                                 <?php $producto = home_controller::devolverProducto($stocks[$i]->id_producto);

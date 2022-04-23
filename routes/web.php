@@ -35,6 +35,8 @@ Route::delete('/eliminarStockCesta-{stock}', [home_controller::class, 'eliminarS
 Route::delete('/eliminarCesta-{pedido}', [home_controller::class, 'eliminarCesta'])->name('eliminarCesta');
 Route::get('/finalizarPedido-{pedido}', [home_controller::class, 'finalizarPedido'])->name('finalizarPedido');
 Route::get('/realizarPedido-{pedido}', [home_controller::class, 'realizarPedido'])->name('realizarPedido');
+Route::patch('/restarStockCesta-{detalle}', [home_controller::class, 'restarStockCesta'])->name('restarStockCesta');
+Route::patch('/sumarStockCesta-{detalle}', [home_controller::class, 'sumarStockCesta'])->name('sumarStockCesta');
 
 
 /*              Categorias-Productos                */
@@ -72,3 +74,4 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [LoginController::class,'login'])->name('login');
 Route::get('/logout', [LogoutController::class,'performAdmin'])->name('logoutAdmin');
+

@@ -87,8 +87,11 @@
             </div>
 
             <div id="form_modificar_categoria">
+                <form id="buscador" style="margin-right: 70px;text-align: center;">
+                    <input onkeyup="filtrarCategoria()" type="text" id="buscadorCategorias" name="buscadorCategorias" placeholder="Introduce el nombre del producto">
+                </form>
                 <table>
-                    <tr>
+                    <tr class="infoCat">
                         <th></th>
                         <th>Categoría</th>
                         <th>Categoría Madre</th>
@@ -97,7 +100,7 @@
                     
                     @foreach (Categoria::orderCategoriaMadre() as $categoria)
                         
-                            <tr>
+                            <tr class="catAbierta" id="{{$categoria->categoria}}">
                                 <td class="eliminarCategoria">
                                     <form action="{{ route('eliminarCategoria', $categoria) }}" method="POST" >
                                         @csrf @method('DELETE')

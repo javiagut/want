@@ -18,9 +18,9 @@ return new class extends Migration
             //$table->engine = "InnoBD";
 
             $table->id()->unique();
-            $table->integer('id_producto');
-            $table->integer('id_talla');
-            $table->integer('id_color');
+            $table->bigInteger('id_producto');
+            $table->bigInteger('id_talla');
+            $table->bigInteger('id_color');
             $table->string('sexo')->nullable();
             $table->float('precio');
             $table->integer('stock')->nullable();
@@ -31,6 +31,9 @@ return new class extends Migration
             $table->string('foto4')->nullable();
             $table->string('foto5')->nullable();
             $table->timestamps();
+            $table->foreign('id_producto')->references('id')->on('productos');
+            $table->foreign('id_talla')->references('id')->on('tallas');
+            $table->foreign('id_color')->references('id')->on('colores');
         });
     }
 

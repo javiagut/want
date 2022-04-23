@@ -33,10 +33,6 @@ class Pedido extends Model
             'id_stock' => $stock,
             'cantidad' => request('cantidad')
         ]);
-        $stockRest = Stock::find($stock);
-        $stockRest->update([
-            'stock' => $stockRest->stock-request('cantidad')
-        ]);
         Pedido::totalCesta($pedidos[0]->id);
     }
 
@@ -46,7 +42,7 @@ class Pedido extends Model
         if(count(Detalle::where('id_pedido','=',$pedidos[0]->id)->where('id_stock','=',$stock)->get()) >0 ){
             $detalle = Detalle::where('id_pedido','=',$pedidos[0]->id)->where('id_stock','=',$stock)->get();
             $detalle[0]->update([
-                'cantidad' => ($stock[0]->cantidad)+request('cantidad')
+                'cantidad' => ($detalle[0]->cantidad)+request('cantidad')
             ]);
         }
         else{
@@ -56,10 +52,6 @@ class Pedido extends Model
                 'cantidad' => request('cantidad')
             ]);
         }
-        $stockRest = Stock::find($stock);
-        $stockRest->update([
-            'stock' => $stockRest->stock-request('cantidad')
-        ]);
         Pedido::totalCesta($pedidos[0]->id);
     }
 
@@ -75,10 +67,6 @@ class Pedido extends Model
             'id_pedido' => $pedidos[0]->id,
             'id_stock' => $stock,
             'cantidad' => request('cantidad')
-        ]);
-        $stockRest = Stock::find($stock);
-        $stockRest->update([
-            'stock' => $stockRest->stock-request('cantidad')
         ]);
         Pedido::totalCesta($pedidos[0]->id);
     }
@@ -98,10 +86,6 @@ class Pedido extends Model
                 'cantidad' => request('cantidad')
             ]);
         }
-        $stockRest = Stock::find($stock);
-        $stockRest->update([
-            'stock' => $stockRest->stock-request('cantidad')
-        ]);
         Pedido::totalCesta($pedidos[0]->id);
     }
 
@@ -132,16 +116,51 @@ class Pedido extends Model
         ]);
         Pedido::where('total','=',0)->delete();
     }
+    static function eliminarPedidos(){
+        $pedidos = Pedido::where('total','=','0')->get();
+        for ($i=0; $i < count($pedidos); $i++) { 
+            if ($pedidos[$i]->total == 0 ) {
+                Pedido::find($pedidos[$i]->id)->delete();
+            }
+        }
+    }
 
     static function historialPedidos(){
         if(count(Pedido::where('id_cliente','=', Auth::id())->where('estado','!=','Pendiente')->get())>0){
-                return Pedido::where('id_cliente','=', Auth::id())->where('estado','!=','Pendiente')->orderBy('created_at','DESC')->get();
+                return Pedido::where('id_cliente','=', Auth::id())->where('estado','!=','Pendiente')->orderBy('created_at','DESC')->paginate(2);
         }
         else return null;
     }
     
     static function pedidosAdmin(){
-        return Pedido::where('estado' ,'!=', 'Pendiente')->orderBy('updated_at','DESC')->paginate(20);
+        return Pedido::where('estado' ,'!=', 'Pendiente')->orderBy('created_at','ASC')->paginate(20);
+    }
+
+    static function comprobarStock($id_pedido){
+        $detalles = Detalle::where('id_pedido','=',$id_pedido)->get();
+        $pedido = Pedido::find($id_pedido);
+        $eliminado = false;
+        for ($i=0; $i < count($detalles); $i++) {
+            $stock = Stock::find($detalles[$i]->id_stock);
+            if ($detalles[$i]->cantidad>$stock->stock){
+                Detalle::find($detalles[$i]->id)->delete();
+                $pedido->update([
+                    'total' => $pedido->total - ($stock->precio * $detalles[$i]->cantidad)
+                ]);
+                $eliminado = true;
+            }
+        }
+        Pedido::eliminarPedidos();
+        return $eliminado;
+    }
+    static function realizarPedido($id_pedido){
+        $detalles = Detalle::where('id_pedido','=',$id_pedido)->get();
+        for ($i=0; $i < count($detalles); $i++) {
+            $stock = Stock::find($detalles[$i]->id_stock);
+            $stock->update([
+                'stock' => $stock->stock - $detalles[$i]->cantidad
+            ]);
+        }
     }
 
 }

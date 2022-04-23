@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('marca');
             $table->string('descripcion',500);
-            $table->integer('id_categoria');
+            $table->bigInteger('id_categoria');
             $table->integer('rebaja')->nullable();
             $table->date('rebaja_inicio')->nullable();
             $table->date('rebaja_fin')->nullable();
             $table->string('estado');
             $table->timestamps();
+            $table->foreign('id_categoria')->references('id')->on('categorias');
         });
     }
 

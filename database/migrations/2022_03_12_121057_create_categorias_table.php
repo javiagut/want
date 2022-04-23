@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('categoria');
-            $table->integer('id_cat_padre')->nullable();
+            $table->bigInteger('id_cat_padre')->nullable();
             $table->string('estado');
             $table->timestamps();
+            $table->foreign('id_cat_padre')->references('id')->on('categorias');
         });
     }
 

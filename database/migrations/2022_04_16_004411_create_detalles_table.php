@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('detalles', function (Blueprint $table) {
             $table->id()->unique();
-            $table->string('id_pedido');
+            $table->bigInteger('id_pedido')->unsigned();
             $table->string('id_stock');
-            $table->string('cantidad');
+            $table->integer('cantidad');
             $table->timestamps();
+            $table->foreign('id_pedido')->references('id')->on('pedidos');
         });
     }
 

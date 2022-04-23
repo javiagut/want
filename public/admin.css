@@ -528,6 +528,8 @@
         margin: auto auto;
         width: 60%;
         border-collapse: collapse;
+        border: 1px solid black;
+        padding-bottom: 20px;
     }
     .tablaPedidos tr:first-of-type{
         background-color: #a45565;
@@ -543,7 +545,58 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+    /*               PEDIDOS              */
 
+    
+    .cajaStock{
+        display: flex;
+        border-bottom: 1px solid #5baa9a;
+    }
+    .cajafotoCesta{
+        margin: 10px;
+    }
+    .fotoCesta{
+        width: 70px;
+    }
+    .stockCesta{
+        width: 400px;
+        padding: 5px;
+        height: auto;
+    }
+    .tituloStockCesta{
+        color: black;
+    }
+    .cantidadStockCesta{
+        color: #a45565;
+        font-size: 0.8em;
+    }
+    .precioStockCesta{
+        padding: 3px;
+        color: black;
+        float: right;
+        font-size: 1.3em;
+        margin-right: 12px;
+    }
+    .totalCestaDiv{
+        height: 50px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 11px;
+    }
+    .totalCesta{
+        float: right;
+        background-color: #5baa9a;
+        border-radius: 5px;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .cajaCesta{
+        border: 1px solid #5baa9a;
+        box-shadow: #5baa9a 0px 5px 15px;
+    }
 
     /*               FOOTER              */
 

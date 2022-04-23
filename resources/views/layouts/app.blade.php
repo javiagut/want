@@ -25,7 +25,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     -->
-
     
 
     <link href="{{ asset('main.css') }}" rel="stylesheet" type="text/css">
@@ -120,6 +119,14 @@
                                     @csrf @method('DELETE')
                                     <button type="submit" class="eliminarStockCesta"><small>Eliminar</small></button>
                                 </form>
+                                <form method='POST' action="{{route('sumarStockCesta', $detalle->id)}}">
+                                    @csrf @method('PATCH')
+                                    <button type="submit" class="eliminarStockCesta">+</button>
+                                </form>
+                                <form method='POST' action="{{route('restarStockCesta', $detalle->id)}}">
+                                    @csrf @method('PATCH')
+                                    <button type="submit" class="eliminarStockCesta">—</button>
+                                </form>
                             </div>
                         </div>
                     @endforeach
@@ -144,6 +151,9 @@
                 <button type='submit'><img src="https://cdn-icons-png.flaticon.com/512/64/64673.png" alt="Buscar"></button>
             </form>
         </div>
+        @if (session('status'))
+            <p id="status">{{session('status')}}</p>
+        @endif
         
         <div class="header_menu">
             <div class="ul">
