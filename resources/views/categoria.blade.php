@@ -100,9 +100,11 @@
                   </div>
           </div>
           <div class="productosFiltrados">
-            
-              <div class="filaProductos">
+            @if (count($stocks) == 0)
+              <h2 style="width:99%;color:red;text-align:center;position:absolute;margin-left:-20%;">NO HAY PRODUCTOS DE LA CATEGORÍA</h2>
+            @endif
                     @isset($stocks)
+                      <div class="filaProductos">
                         @for ($i = 1; $i <= count($stocks); $i++)
                         <?php $producto = home_controller::devolverProducto($stocks[$i-1]->id_producto) ?>
                             <div class="cuadroProducto">
@@ -119,8 +121,8 @@
                                 <div class="filaProductos">
                             @endif
                         @endfor
+                      </div>
                     @endisset
-                </div>
                <div class="paginacion">
                   {{$stocks->links() }}
                 </div>

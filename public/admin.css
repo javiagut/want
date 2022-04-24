@@ -522,7 +522,7 @@
         cursor: pointer;
     }
     .pedidosGeneral img{
-        width: 40px;
+        width: 60px;
     }
     .tablaPedidos{
         margin: auto auto;
@@ -553,10 +553,10 @@
         border-bottom: 1px solid #5baa9a;
     }
     .cajafotoCesta{
-        margin: 10px;
+        padding: 10px;
     }
     .fotoCesta{
-        width: 70px;
+        width: 60px;
     }
     .stockCesta{
         width: 400px;
@@ -597,29 +597,51 @@
         border: 1px solid #5baa9a;
         box-shadow: #5baa9a 0px 5px 15px;
     }
+    .pedidoAdmin{
+        background-color: #ffe4ea;
+    }
+    .detallePedido{
+        border: #a45565 3px solid;
+        background-color: white;
+    }
 
     /*               FOOTER              */
 
     footer{
         width: 100%;
-        height: 300px;
         background-color: black;
         color:white;
+        display: flex;
     }
     .info{
-        padding-top: 80px;
         padding-left: 200px;
-        width: 300px;
         font-size: 0.8em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     footer a{
         text-decoration: none;
-        color: #5baa9a;
+        color: white;
+    }
+    footer a:hover{
+        text-decoration: none;
+        color: #a45565;
     }
     .footer_title{
         font-size: 3em;
+        color: #5baa9a;
     }
     .footer_title:hover{
         color: #a45565;
+    }
+    .categoriasFooter{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.2em;
     }
 }

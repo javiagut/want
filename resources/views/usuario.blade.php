@@ -4,11 +4,11 @@
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
-        <h3 class="inicioSesionTitulo">Información del usuario</h3>
         @if (session('status'))
             <p id="status">{{session('status')}}</p>
         @endif
         <form method="POST" action="{{ route('actualizarPerfil',Auth::user()) }}" id="formLogin" class="formRegister">
+            <h3 class="inicioSesionTitulo">Información del usuario</h3>
             @csrf
             @method('PATCH')
             <table>

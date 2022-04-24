@@ -2,7 +2,6 @@ body{
     width: 100%;
     margin: auto;
     font-family: 'Rubik', sans-serif;
-    padding-bottom: 150px;
 }
 @media screen and (min-width:700px){
 
@@ -177,7 +176,7 @@ body{
         width: 50px;
     }
     #formLogin{
-        width: 20%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -729,7 +728,9 @@ body{
         padding-right: 30px;
         padding-bottom: 30px;
     }
-    
+    #pedido{
+        margin-top: 20px;
+    }
     .tituloPedido{
         background-color: #a45565;
         color: white;
@@ -794,25 +795,40 @@ body{
 
     footer{
         width: 100%;
-        height: 300px;
         background-color: black;
         color:white;
-        margin-bottom: -1000px;
+        display: flex;
+        height: 300px;
     }
     .info{
-        padding-top: 80px;
         padding-left: 200px;
-        width: 300px;
         font-size: 0.8em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     footer a{
         text-decoration: none;
-        color: #5baa9a;
+        color: white;
+    }
+    footer a:hover{
+        text-decoration: none;
+        color: #a45565;
     }
     .footer_title{
         font-size: 3em;
+        color: #5baa9a;
     }
     .footer_title:hover{
         color: #a45565;
+    }
+    .categoriasFooter{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.2em;
     }
 }

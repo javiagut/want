@@ -166,9 +166,7 @@ class home_admin_controller extends Controller
                 ]);
             }
         }
-
-        $pedidos = Pedido::pedidosAdmin();
-        return view('admin.pedidos',compact('pedidos'));
+        return back()->with('status','Se han actualizado correctamente los pedidos');
     }
     
 }

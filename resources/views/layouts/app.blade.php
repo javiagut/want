@@ -176,6 +176,41 @@
             <br><br><span>Barcelona, Spain</span><br><br>
             <span>C/Aribau 24-26, 08003</span><br>
         </div>
+        <?php $categorias = home_controller::categorias();
+            $div = count($categorias)/2;
+            $i=1;
+            $e=1;
+        ?>
+        <div class="categoriasFooter">
+            @foreach ($categorias as $categoria)
+            <?php $e++ ?>
+                @if ($i > $div && $e<count($categorias))
+                    </div>
+                    <div class="categoriasFooter">
+                    <?php $i=0; ?>
+                @endif
+                <span><a href="{{route('categoria', $categoria->categoria)}}">{{$categoria->categoria}}</a></span><br>
+                <?php $i++ ?>
+            @endforeach
+        </div>
+        @auth
+            <div class="categoriasFooter">
+                @if (home_controller::esAdmin() == true)
+                    <a href="{{route('admin')}}"><span class="icon-location-arrow mr-3"></span>Gestión de la Tienda</a>
+                @endif
+                <h3 style="margin: 10px;color:#5baa9a;padding-left: 0;">Gestionar cuenta</h3>
+                <a href="{{route('usuario')}}"><span class="icon-sign-out mr-3"></span>Editar información</a>
+                <a href="{{route('pedidos')}}"><span class="icon-sign-out mr-3"></span>Pedidos</a>
+                <a href="{{route('logoutAdmin')}}"><span class="icon-sign-out mr-3"></span>Cerrar sesión</a>
+            </div>
+        @endauth
+        @guest
+            <div class="categoriasFooter">
+                <h3 style="margin-left: 10px;color:#5baa9a;">Acceso a su cuenta</h3>
+                <a href="{{route('login')}}"><span class="icon-location-arrow mr-3"></span>Iniciar Sesión</a>
+                <a href="{{route('register')}}"><span class="icon-location-arrow mr-3"></span>Registrarse</a>
+            </div>
+        @endguest
     </footer>
 
     <script src="js/jquery-3.3.1.min.js"></script>

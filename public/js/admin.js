@@ -377,6 +377,14 @@ function mostrarProductosStock(){
 }
 
 function mostrarStock(id){
+    var formsEditar = document.getElementsByClassName('crearStockFormulario');
+    var formsCrear = document.getElementsByClassName('editarStockFormulario');
+    for (let i = 0; i < formsEditar.length; i++) {
+        formsEditar[i].style.display = 'none';
+    }
+    for (let i = 0; i < formsCrear.length; i++) {
+        formsCrear[i].style.display = 'none';
+    }
     var stocks = document.getElementsByClassName('titleStock');
     for (let i = 0; i < stocks.length; i++) {
         if(stocks[i]!==null) {

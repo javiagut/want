@@ -7,6 +7,9 @@
 <div id='paginaJS' style="display: none">pedidos</div>
     <div class="pedidosGeneral">
         <h2>Pedidos Realizados</h2>
+        @if (session('status'))
+            <p id="status">{{session('status')}}</p>
+        @endif
         <form method='POST' action="{{route('actualizarPedidos',$pedidos[0])}}" id="formPedidos">
             @csrf
             @method('PATCH')
@@ -22,7 +25,7 @@
                 </tr>
                 <?php $i=0 ?>
                 @foreach ($pedidos as $pedido)
-                <tr>
+                <tr class="pedidoAdmin">
                     <td>{{$pedido->id}}</td>
                     <td>{{$pedido->id_cliente}}</td>
                     <?php 

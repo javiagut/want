@@ -36,10 +36,13 @@ $(function() {
 });
 
 /*		ADEQUAR ALTURA BODY A SU CONTENIDO */
-$(document).ready(function(){
-    document.body.style.minHeight = document.documentElement.scrollHeight+'px';
-});
+/*$(document).ready(function(){
+    document.body.style.maxHeight = document.documentElement.scrollHeight+'px';
+});*/
 
+$(document).ready(function(){
+	setTimeout(esconder, 2500);
+});
 
 /*		PONER CADA SUBCATEGORIA CON SU FONDO*/
 var categorias = document.getElementsByClassName("mostrar_hijo");

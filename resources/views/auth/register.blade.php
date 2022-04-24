@@ -4,7 +4,7 @@
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
-        <form method="POST" action="{{ route('register') }}" id="formLogin" class="formRegister" style="width: 30%;">
+        <form method="POST" action="{{ route('register') }}" id="formLogin" class="formRegister" style="width: 40%;">
             @csrf
             <h3 class="inicioSesionTitulo">Registrarse</h3>
             @if (session('status'))

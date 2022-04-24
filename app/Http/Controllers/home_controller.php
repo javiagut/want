@@ -247,7 +247,13 @@ class home_controller extends Controller
         ]);
         return back();
     }
-    
+    static function esAdmin(){
+        $user = User::find(Auth::id());
+        if($user->rol == 'admin'){
+            return true;
+        }
+        else return false;
+    }
 
     /*                      VARIABLES PARA LAS VISTAS                        */
 
@@ -281,5 +287,7 @@ class home_controller extends Controller
     static function categoriasCinco(){
         return Categoria::all()->take(7);
     }
-    //
+    static function categorias(){
+        return Categoria::findSinPadre();
+    }
 }
