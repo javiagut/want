@@ -88,6 +88,6 @@ class LoginController extends Controller
             if ($user->rol=='admin') return redirect('admin');
             else return redirect('/');
         }
-        else return view('Auth/login')->with('status','Correo electrónico o contraseña incorrectos');
+        else return view('auth/login')->with('status','Correo electrónico o contraseña incorrectos');
     }
 }
